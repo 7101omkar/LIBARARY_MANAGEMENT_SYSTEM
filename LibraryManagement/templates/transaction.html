@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}  Transactions{% endblock %}
+
+{% block body %}
+
+<h1>List of Transactions</h1>
+<a href="/issue_book_view">
+    <button type="button" class="btn btn-primary">Issue Book</button>
+</a>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Reciept Id</th>
+        <th scope="col">Member Id</th>
+        <th scope="col">Members Name</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Book Title</th>
+        <th scope="col">Issue Date</th>
+        <th scope="col">Return Date</th>
+        <th scope="col">Total Rental Fee</th>
+        <th scope="col">Return Book</th>
+        <th scope="col">Is Returned</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in transData %}
+    <tr>
+        <td>{{i.reciept_id}}</td>
+        <td>{{i.members_id}}</td>
+        <td>{{i.members_name}}</td>
+        <td>{{i.isbn}}</td>
+        <td>{{i.book_title}}</td>
+        <td>{{i.issue_date}}</td>
+        <td>{{i.return_date}}</td>
+        <td>{{i.total_rental_fee}}</td>
+        <td>
+            <a href="/return_book?reciept_id={{i.reciept_id}}">
+                <button type="button" class="btn btn-primary">Return</button>
+            </a>
+        </td>
+        <td>{{i.is_returned}}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

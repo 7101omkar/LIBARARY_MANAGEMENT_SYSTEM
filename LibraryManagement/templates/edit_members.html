@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Edit members{% endblock %}
+
+{% block body %}
+
+<h1>Edit Members</h1>
+
+<form action="/edit_members/update" method="POST">
+  {% csrf_token %}
+
+  <div class="mb-3">
+    <label for="members_id">Member's ID</label>
+    <input type="number" class="form-control" id="members_id" name="members_id" value="{{members.members_id}}" >
+  </div>
+  <div class="mb-3">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" value="{{members.name}}">
+  </div>
+  <div class="mb-3">
+    <label for="email_id">Email ID</label>
+    <input type="text" class="form-control" id="email_id" name="email_id" value="{{members.email_id}}">
+  </div>
+  <div class="mb-3">
+    <label for="mobile_no">Mobile No</label>
+    <input type="text" class="form-control" id="mobile_no" name="mobile_no" value="{{members.mobile_no}}">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

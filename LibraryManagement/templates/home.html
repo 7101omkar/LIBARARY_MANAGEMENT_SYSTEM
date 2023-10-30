@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<h4>Search Book</h4>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <form class="d-flex" role="search" method=POST action="/search_book" name="searched">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search by title" aria-label="Search"
+                   name="search_title">
+
+            <br>
+            <input class="form-control me-2" type="search" placeholder="Search by author" aria-label="Search"
+                   name="search_author">
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<a href="/import_data">
+    <button type="button" class="btn btn-primary">Import Books</button>
+</a>
+
+<br>
+
+<!--<h4>Search Book by Author name</h4>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form class="d-flex" role="search" method=POST action="/search_book">
+        {% csrf_token %}
+
+    </form>
+  </div>
+</nav>-->
+
+
+{% endblock %}

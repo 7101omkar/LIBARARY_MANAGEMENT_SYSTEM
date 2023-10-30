@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Edit Book {% endblock %}
+
+{% block body %}
+
+<h1>Edit Books</h1>
+
+<form action="/edit_book/update" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="bookid" value="{{book.isbn}}">
+  <div class="mb-3">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" value="{{book.title}}" >
+  </div>
+  <div class="mb-3">
+    <label for="author">Author</label>
+    <input type="text" class="form-control" id="author" name="author" value="{{book.author}}">
+  </div>
+  <div class="mb-3">
+    <label for="isbn">ISBN</label>
+    <input type="text" class="form-control" id="isbn" name="isbn" value="{{book.isbn}}">
+  </div>
+  <div class="mb-3">
+    <label for="publisher">Publisher</label>
+    <input type="text" class="form-control" id="publisher" name="publisher" value="{{book.publisher}}">
+  </div>
+  <div class="mb-3">
+    <label for="page">Page</label>
+    <input type="number" class="form-control" id="page" name="page" value="{{book.page}}">
+  </div>
+  <div class="mb-3">
+    <label for="quantity">Quantity</label>
+    <input type="number" class="form-control" id="quantity" name="quantity" value="{{book.quantity}}">
+  </div>
+  <div class="mb-3">
+    <label for="fee">Fee</label>
+    <input type="number" class="form-control" id="fee" name="fee" value="{{book.fee}}">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

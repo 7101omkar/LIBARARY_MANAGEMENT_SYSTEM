@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} Retrun Books{% endblock %}
+{% block body %}
+
+<h1>{{form_title}}</h1>
+
+<form action="/return_book/update" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="rid" value="{{return_book.reciept_id}}">
+    <input type="hidden" name="bIsbn" value="{{return_book.isbn}}">
+    <div class="mb-3">
+        <label for="reciept_id">Reciept Id</label>
+        <input type="number" class="form-control" id="reciept_id" name="reciept_id" value="{{return_book.reciept_id}}"
+               disabled="disabled">
+    </div>
+    <div class="mb-3">
+        <label for="member_id">Member Id</label>
+        <input type="number" class="form-control" id="member_id" name="member_id" value="{{return_book.members_id}}">
+    </div>
+    <div class="mb-3">
+        <label for="member_name">Member Name</label>
+        <input type="text" class="form-control" id="member_name" name="member_name" value="{{return_book.members_name}}"
+               disabled="disabled">
+    </div>
+    <div class="mb-3">
+        <label for="book_isbn">ISBN</label>
+        <input type="text" class="form-control" id="book_isbn" name="book_isbn" value="{{return_book.isbn}}"
+               disabled="disabled">
+    </div>
+    <div class="mb-3">
+        <label for="book_title">Book Title</label>
+        <input type="text" class="form-control" id="book_title" name="book_title" value="{{return_book.book_title}}"
+               disabled="disabled">
+    </div>
+    <div class="mb-3">
+        <label for="issue_date">Issue Date</label>
+        <input type="text" class="form-control" id="issue_date" name="issue_date" value="{{return_book.issue_date}}"
+               disabled="disabled">
+    </div>
+    <div class="mb-3">
+        <label for="return_date">Return Date</label>
+        <input type="text" class="form-control" id="return_date" name="return_date" value="{{return_book.return_date}}"
+               disabled="disabled">
+    </div>
+    <div class="mb-3">
+        <label for="total_rental_fee">Total Rental Fee</label>
+        <input type="number" class="form-control" id="total_rental_fee" name="total_rental_fee"
+               value="{{return_book.total_rental_fee}}" disabled="disabled">
+    </div>
+    <div class="mb-3">
+        <label for="is_returned">Is Returned?</label>
+        <input type="text" class="form-control" id="is_returned" name="is_returned" value="{{return_book.is_returned}}">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

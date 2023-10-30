@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Import Data{% endblock %}
+
+{% block body %}
+
+<table class="table">
+<tbody>
+  {% for i in response %}
+    <tr>
+
+      <td>{{i.title}}</td>
+      <td>{{i.bookID}}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+
+</table>
+{% endblock %}

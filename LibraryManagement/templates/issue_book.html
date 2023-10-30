@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Issue Book {% endblock %}
+{% block body %}
+
+<h1>Issue Books</h1>
+
+<form action="/issue_book" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="members_id">Members Id</label>
+        <input type="number" class="form-control" id="members_id" name="members_id" value={{members_id}}>
+    </div>
+    <div class="mb-3">
+        <label for="book_isbn">Book ISBN</label>
+        <input type="text" class="form-control" id="book_isbn" name="book_isbn" value={{book_isbn}}>
+    </div>
+    <div class="mb-3">
+        <label for="issue_date">Issue Date</label>
+        <input type="date" class="form-control" id="issue_date" name="issue_date" value={{issue_date}}>
+    </div>
+    <div class="mb-3">
+        <label for="return_date">Return Date</label>
+        <input type="date" class="form-control" id="return_date" name="return_date" value={{return_date}}>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

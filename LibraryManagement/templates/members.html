@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} Members {% endblock %}
+
+{% block body %}
+
+<h1>List of Members</h1>
+
+<a href="/add_members_view">
+    <button type="button" class="btn btn-primary">Add Members</button>
+</a>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Member's ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Mobile No</th>
+      <th scope="col">Debt</th>
+      <th scope="col">Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in members %}
+    <tr>
+      <td>{{i.members_id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.email_id}}</td>
+      <td>{{i.mobile_no}}</td>
+      <td>{{i.debt}}</td>
+      <td>
+        <a href="/edit_members?members_id={{i.members_id}}"><button type="button" class="btn btn-primary">Edit</button></a>
+        <a href="/delete_members?members_id={{i.members_id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+      </td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

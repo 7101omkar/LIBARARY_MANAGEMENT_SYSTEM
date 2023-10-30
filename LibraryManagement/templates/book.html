@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Books{% endblock %}
+
+{% block body %}
+<h1>List of Books</h1>
+
+<a href="/add_book_view">
+    <button type="button" class="btn btn-primary">Add Book</button>
+</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Authors</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Page</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Fee</th>
+        <th scope="col">Edit/Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in book %}
+    <tr>
+
+        <td>{{i.title}}</td>
+        <td>{{i.author}}</td>
+        <td>{{i.isbn}}</td>
+        <td>{{i.publisher}}</td>
+        <td>{{i.page}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.fee}}</td>
+        <td>
+            <a href="/edit_book?bookid={{i.isbn}}">
+                <button type="button" class="btn btn-primary">Edit</button>
+            </a>
+            <a href="/delete_book?bookid={{i.isbn}}">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
